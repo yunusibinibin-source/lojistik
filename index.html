@@ -380,6 +380,121 @@
   opacity: 0.1;
   z-index: -1;
 }
+.insurance-pro { padding: 3.5rem 0; }
+
+.insurance-wrap{
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: radial-gradient(1200px 500px at 20% 20%, rgba(250,204,21,0.12), transparent 60%),
+              radial-gradient(900px 420px at 80% 70%, rgba(56,189,248,0.10), transparent 60%),
+              linear-gradient(135deg, rgba(4,10,28,0.90), rgba(6,14,40,0.96));
+  box-shadow: 0 24px 80px rgba(0,0,0,0.55);
+  padding: 2.2rem 2.2rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.6rem;
+}
+
+/* gold çizgiler */
+.insurance-wrap::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(115deg, rgba(250,204,21,0.22), transparent 45%),
+    radial-gradient(circle at 20% 10%, rgba(250,204,21,0.18), transparent 45%),
+    radial-gradient(circle at 90% 80%, rgba(250,204,21,0.14), transparent 40%);
+  opacity:.55;
+  pointer-events:none;
+}
+
+.insurance-wrap::after{
+  content:"";
+  position:absolute; inset:-2px;
+  background:
+    repeating-linear-gradient(110deg,
+      rgba(250,204,21,0.06) 0px,
+      rgba(250,204,21,0.06) 1px,
+      transparent 1px,
+      transparent 18px);
+  opacity:.25;
+  pointer-events:none;
+}
+
+.insurance-content{ position:relative; z-index:2; }
+.insurance-brand{ margin-bottom: .6rem; }
+.insurance-logo{ height: 44px; width:auto; opacity:.95; filter: drop-shadow(0 8px 22px rgba(0,0,0,0.65)); }
+
+.insurance-title{
+  font-weight: 800;
+  letter-spacing: .06em;
+  color: #fbbf24;
+  margin: .2rem 0 1rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+}
+
+.insurance-person .name{
+  color:#e5e7eb;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom:.25rem;
+}
+.insurance-person .phone{
+  color: rgba(229,231,235,0.92);
+  display: inline-flex;
+  gap:.5rem;
+  align-items:center;
+  font-size: .95rem;
+  text-decoration:none;
+}
+.insurance-person .phone:hover{ color:#fbbf24; }
+
+.insurance-grid{
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.2rem;
+}
+
+.ins-item{
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  padding: .65rem .85rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color:#e5e7eb;
+  backdrop-filter: blur(10px);
+}
+.ins-item i{ color:#fbbf24; }
+
+/* sağ görsel */
+.insurance-visual{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  border-radius: 110px;
+}
+.insurance-visual img{
+  width: min(420px, 100%);
+  height: auto;
+  transform: translateY(10px);
+  filter: drop-shadow(0 30px 55px rgba(0,0,0,0.55));
+  opacity: .98;
+    border-radius: 10px;
+}
+
+/* mobilde altta görsel */
+@media (max-width: 991.98px){
+  .insurance-wrap{ grid-template-columns: 1fr; padding: 1.6rem; }
+  .insurance-grid{ grid-template-columns: 1fr; }
+  .insurance-visual{ margin-top: 1rem; }
+  .insurance-visual img{ transform: none; }
+}
 
     .slide-text {
       font-size: 1rem;
@@ -875,51 +990,49 @@
       </div>
     </div>
   </section>
-<section id="insurance" class="section insurance-section">
+<section id="insurance" class="section insurance-pro">
   <div class="container">
+    <div class="insurance-wrap">
 
-    <div class="section-header text-center mb-4">
-      <h2 class="section-title lang"
-          data-tr="Sigorta ve Aracılık Hizmetleri"
-          data-en="Insurance & Brokerage Services">
-        Sigorta ve Aracılık Hizmetleri
-      </h2>
-      <p class="section-subtitle mx-auto lang"
-         data-tr="Eyyup Trans güvencesiyle profesyonel sigorta çözümleri sunuyoruz."
-         data-en="We offer professional insurance solutions with Eyyup Trans assurance.">
-        Eyyup Trans güvencesiyle profesyonel sigorta çözümleri sunuyoruz.
-      </p>
-    </div>
-
-    <div class="glass-card insurance-card p-4">
-
-      <div class="text-center mb-3">
-        <img src="logo.png" class="insurance-logo" alt="Eyyup Trans">
-      </div>
-       <h4 class="text-center mb-1 text-warning fw-bold">SİGORTA VE ARACILIK HİZMETLERİ</h4>
-      <p class="text-center mb-1 text-shadow ">AHMET KILINÇ</p>
-      <p class="text-center mb-4 small">
-        <i class="bi bi-telephone"></i> 0534 659 4780
-      </p>
-
-      <div class="row text-center insurance-list">
-        <div class="col-md-6">
-          <p><i class="bi bi-shield-check text-warning"></i> Kasko Sigortası</p>
-          <p><i class="bi bi-shield-check text-warning"></i> Hayat Sigortası</p>
-          <p><i class="bi bi-shield-check text-warning"></i> Trafik Sigortası</p>
+      <!-- SOL: içerik -->
+      <div class="insurance-content">
+        <div class="insurance-brand">
+          <img src="logo.png" alt="Eyyup Trans" class="insurance-logo">
         </div>
 
-        <div class="col-md-6 text-center">
-          <p><i class="bi bi-shield-check text-warning"></i> Tamamlayıcı Sağlık</p>
-          <p><i class="bi bi-shield-check text-warning"></i> Konut - DASK</p>
-          <p><i class="bi bi-shield-check text-warning"></i> İş Yeri Sigortası</p>
+        <h2 class="insurance-title">SİGORTA VE ARACILIK HİZMETLERİ</h2>
+
+        <div class="insurance-person">
+          <div class="name">AHMET KILINÇ</div>
+          <a class="phone" href="tel:+905346594780">
+            <i class="bi bi-telephone"></i> 0534 659 4780
+          </a>
+        </div>
+
+        <div class="insurance-grid">
+          <div class="col">
+            <div class="ins-item"><i class="bi bi-shield-check"></i> Kasko Sigortası</div>
+            <div class="ins-item"><i class="bi bi-shield-check"></i> Hayat Sigortası</div>
+            <div class="ins-item"><i class="bi bi-shield-check"></i> Trafik Sigortası</div>
+          </div>
+          <div class="col">
+            <div class="ins-item"><i class="bi bi-shield-check"></i> Tamamlayıcı Sağlık</div>
+            <div class="ins-item"><i class="bi bi-shield-check"></i> Konut - DASK</div>
+            <div class="ins-item"><i class="bi bi-shield-check"></i> İş Yeri Sigortası</div>
+          </div>
         </div>
       </div>
 
-    </div>
+      <!-- SAĞ: araç görseli -->
+      <div class="insurance-visual">
+        <!-- buraya istediğin aracı koy -->
+        <img src="xsfd.jpg" alt="Eyyup Trans Vehicle">
+      </div>
 
+    </div>
   </div>
 </section>
+
 
   <!-- SERTİFİKALAR -->
   <section id="certificates" class="section">
